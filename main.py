@@ -3,11 +3,14 @@ from discord.ext import commands
 
 import logging
 import traceback
+import configparser
 
 from os import listdir
 from os.path import isfile, join
 
 bot = commands.Bot(command_prefix='$', description='This simple Blueprint')
+config = configparser.ConfigParser()
+config.read('config.ini')
 
 
 @bot.event
@@ -28,8 +31,9 @@ async def load_cogs():
 
 
 def main():
+
     logging.basicConfig(level=logging.INFO)
-    bot.run('NTU1NTQ0NDgwOTUwNzc5OTA1.D2syEQ.DklB5IevnLTznr0HpjPctYPx8UI')
+    bot.run(config['DEFAULT']['TOKEN'])
 
 
 if __name__ == '__main__':
