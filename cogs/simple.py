@@ -15,7 +15,7 @@ class Simple(commands.Cog):
         if self._last_member is None or self._last_member.id != member.id:
             await ctx.send('Hello {0.mention}'.format(member))
         else:
-            await ctx.send('Hello {0.name}... This feels familiar.'.format(member))
+            await ctx.send('Hello {0.mention}... This feels familiar.'.format(member))
         self._last_member = member
 
 
